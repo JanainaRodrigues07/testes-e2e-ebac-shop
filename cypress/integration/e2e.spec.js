@@ -2,6 +2,8 @@
 import CheckoutPage from '../support/page_objects/checkout.page'
 const dadosCheckout = require ('../fixtures/checkout.json')
 
+var faker = require('faker');
+
 
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     /*  Como cliente 
@@ -20,16 +22,24 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     });
 
     it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
-        cy.addProduto('Aether Gym Pant' , '33' , 'Green' , 4)
-        CheckoutPage.editarCheckout(dadosCheckout[0].nome, sobrenome, empresa, pais, rua, numero, cidade, estado, cep, telefone, email)
+        cy.addProduto('Arcadio Gym Short' , '32' , 'Black' , 4)
+
+        CheckoutPage.editarCheckout(
+            dadosCheckout[0].nome, 
+            dadosCheckout[0].sobrenome, 
+            dadosCheckout[0].empresa, 
+            dadosCheckout[0].pais, 
+            dadosCheckout[0].rua, 
+            dadosCheckout[0].numero, 
+            dadosCheckout[0].cidade, 
+            dadosCheckout[0].estado, 
+            dadosCheckout[0].cep, 
+            dadosCheckout[0].telefone, 
+            dadosCheckout[0].email
+            )
+            cy.get('.woocommerce-notice').should('contain' , 'Obrigado. Seu pedido foi recebido')
+         
         
-
-       
-        //.click - carrinho
-        //.click - finalizar
-        //Checkout
-
-        //TODO 
     });
 
 
