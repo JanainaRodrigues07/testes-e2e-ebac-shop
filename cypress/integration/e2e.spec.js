@@ -1,4 +1,7 @@
 /// <reference types="cypress" />
+import CheckoutPage from '../support/page_objects/checkout.page'
+const dadosCheckout = require ('../fixtures/checkout.json')
+
 
 context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     /*  Como cliente 
@@ -18,6 +21,8 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
 
     it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
         cy.addProduto('Aether Gym Pant' , '33' , 'Green' , 4)
+        CheckoutPage.editarCheckout(dadosCheckout[0].nome, sobrenome, empresa, pais, rua, numero, cidade, estado, cep, telefone, email)
+        
 
        
         //.click - carrinho

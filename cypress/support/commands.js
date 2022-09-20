@@ -40,11 +40,6 @@ Cypress.Commands.add('addProduto', (produto, tamanho, cor, quantidade) => {
     cy.get('.single_add_to_cart_button').click()
 });
 
-Cypress.Commands.add('finalizarCompra', (nome, sobrenome, empresa, pais, rua, numero, cidade, estado, cep, telefone, email) => {
-    cy.get('.woocommerce-message > .button').click()
-    cy.get('.checkout-button').click()
-
-});
     
 
 
